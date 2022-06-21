@@ -83,12 +83,15 @@ It has two more microservices one for eureka server and one for api gateway.
 * update your database credentials in the .properties file wherever it is used in all microservices.
 * update YOUR_GMAIL_USERNAME/YOUR_GMAIL_PASSWORD in the [.properties file](./airport-bookings-service/src/main/resources/application.yml) of airport-booking-service.  
 
-**Step 6.** Run the microservices in the following sequence.
+**Step 6.** Build all microservices (Before that make sure we have set Java Build Path of each microservice to JDK 11)
+* `mvn clean install`
+
+**Step 7.** Run the microservices in the following sequence.
 * eureka-server
 * api-gateway
 * all microservices one by one in any sequence
 
-**Step 7.** Run APIs (microservices) using OpenAPI (Swagger-UI) or Postman Client in the following sequence.
+**Step 8.** Run APIs (microservices) using OpenAPI (Swagger-UI) or Postman Client in the following sequence.
 * airport-pilot-service
 * airport-flight-service
 * airport-booking-service
@@ -96,7 +99,7 @@ It has two more microservices one for eureka server and one for api gateway.
 * airport-checkin-service
 * airport-boarding-service
 
-**Step 8 (optional).** Run Zipkin Server to trace Sleuth logs on GUI.
+**Step 9 (optional).** Run Zipkin Server to trace Sleuth logs on GUI.
 * download and install zipkin server and then [run the zipkin server](./snapshots/start-zipkin-server.PNG). Here is the [zipkin server console output](./snapshots/run-zipkin-server-and-trace-any-sleuth-request.PNG)
 
 ## Snapshots
