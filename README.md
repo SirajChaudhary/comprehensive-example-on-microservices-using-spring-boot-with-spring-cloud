@@ -94,12 +94,13 @@ It has two more microservices one for eureka server and one for api gateway.
 * airport-checkin-service
 * airport-boarding-service
 
-**Step 7.** Run the microservices in the following sequence.
+**Step 7.** Run all microservices in the following sequence.
 * eureka-server
 * api-gateway
 * all microservices one by one in any sequence
 
-**Step 8.** Run APIs (microservices) using OpenAPI (Swagger-UI) or Postman Client in the following sequence.
+**Step 8.** Run APIs using Postman or OpenAPI (Swagger-UI)
+<br />- APIs of microservices should be run in the following sequence for first time.
 * airport-pilot-service
 * airport-flight-service
 * airport-booking-service
