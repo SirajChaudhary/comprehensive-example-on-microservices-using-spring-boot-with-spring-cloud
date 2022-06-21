@@ -1,7 +1,7 @@
 spring:
   application:
     # UNIQUE NAME OF THIS MICROSERVICE
-    name: airport-checking-service
+    name: airport-security-service
   # ANSI CONSOLE OUTPUT (COLOR LOGS WILL BE DISPLAYED)
   output:
     ansi:

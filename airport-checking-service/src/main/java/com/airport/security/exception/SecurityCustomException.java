@@ -6,7 +6,7 @@
  * https://www.linkedin.com/in/sirajchaudhary/
  */
 
-package com.airport.checking.exception;
+package com.airport.security.exception;
 
 import org.springframework.stereotype.Component;
 
@@ -23,7 +23,7 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class CheckingCustomException extends RuntimeException {
+public class SecurityCustomException extends RuntimeException {
 
 	private String errorCode; //NOSONAR
 	private String errorMessage; //NOSONAR

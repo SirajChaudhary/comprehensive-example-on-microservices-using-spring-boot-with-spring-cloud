@@ -6,7 +6,7 @@
  * https://www.linkedin.com/in/sirajchaudhary/
  */
 
-package com.airport.checking.entity;
+package com.airport.security.entity;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -19,10 +19,10 @@ import lombok.Getter;
 import lombok.Setter;
 
 @Entity
-@Table(name = "checking")
+@Table(name = "security")
 @Getter
 @Setter
-public class CheckingEntity {
+public class SecurityEntity {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

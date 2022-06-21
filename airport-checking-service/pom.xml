@@ -11,10 +11,10 @@
 		<relativePath /> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.airport</groupId>
-	<artifactId>airport-checking-service</artifactId>
+	<artifactId>airport-security-service</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>airport-checking-service</name>
-	<description>Airport checking service</description>
+	<name>airport-security-service</name>
+	<description>Airport security service</description>
 	<properties>
 		<!-- java version -->
 		<java.version>11</java.version>

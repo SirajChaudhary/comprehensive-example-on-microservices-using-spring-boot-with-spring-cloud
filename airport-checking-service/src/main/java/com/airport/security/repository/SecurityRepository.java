@@ -6,7 +6,7 @@
  * https://www.linkedin.com/in/sirajchaudhary/
  */
 
-package com.airport.checking.repository;
+package com.airport.security.repository;
 
 import java.util.Optional;
 
@@ -14,11 +14,11 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
-import com.airport.checking.entity.CheckingEntity;
+import com.airport.security.entity.SecurityEntity;
 
 @Repository
-public interface CheckingRepository extends JpaRepository<CheckingEntity, Long> {
+public interface SecurityRepository extends JpaRepository<SecurityEntity, Long> {
 
-	@Query("SELECT c FROM CheckingEntity c WHERE c.bookingId = ?1")
-	Optional<CheckingEntity> findByBookingId(Long bookingId);
+	@Query("SELECT c FROM SecurityEntity c WHERE c.bookingId = ?1")
+	Optional<SecurityEntity> findByBookingId(Long bookingId);
 }

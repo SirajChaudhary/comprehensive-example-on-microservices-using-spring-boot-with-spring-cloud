@@ -6,7 +6,7 @@
  * https://www.linkedin.com/in/sirajchaudhary/
  */
 
-package com.airport.checking.exception;
+package com.airport.security.exception;
 
 import java.time.LocalDateTime;
 import java.util.LinkedHashMap;
@@ -21,17 +21,17 @@ import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExcep
 /* Global Exception Handling */
 
 @ControllerAdvice
-public class CheckingControllerAdvicer extends ResponseEntityExceptionHandler {
+public class SecurityControllerAdvicer extends ResponseEntityExceptionHandler {
 
 	/* Custom Exception Handler */
-	@ExceptionHandler(CheckingCustomException.class)
-	public ResponseEntity<Map<String, Object>> handleCheckingCustomException(
-			CheckingCustomException checkingCustomException) {
+	@ExceptionHandler(SecurityCustomException.class)
+	public ResponseEntity<Map<String, Object>> handleSecurityCustomException(
+			SecurityCustomException securityCustomException) {
 
 		Map<String, Object> body = new LinkedHashMap<>();
 		body.put("timestamp", LocalDateTime.now());
-		body.put("message", checkingCustomException.getErrorMessage());
-		body.put("status", checkingCustomException.getErrorCode());
+		body.put("message", securityCustomException.getErrorMessage());
+		body.put("status", securityCustomException.getErrorCode());
 
 		return new ResponseEntity<>(body, HttpStatus.BAD_REQUEST);
 	}

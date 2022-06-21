@@ -1,4 +1,4 @@
-package com.airport.checking;
+package com.airport.security;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -8,13 +8,13 @@ import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 
 @SpringBootApplication
-@ComponentScan({ "com.airport.checking.controller", "com.airport.checking.service", "com.airport.checking.exception" })
-@EntityScan("com.airport.checking.entity")
-@EnableJpaRepositories("com.airport.checking.repository")
+@ComponentScan({ "com.airport.security.controller", "com.airport.security.service", "com.airport.security.exception" })
+@EntityScan("com.airport.security.entity")
+@EnableJpaRepositories("com.airport.security.repository")
 @EnableEurekaClient
-public class AirportCheckingServiceApplication {
+public class AirportSecurityServiceApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(AirportCheckingServiceApplication.class, args);
+		SpringApplication.run(AirportSecurityServiceApplication.class, args);
 	}
 }

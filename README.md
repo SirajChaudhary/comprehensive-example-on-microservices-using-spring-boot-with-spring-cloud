@@ -70,7 +70,7 @@ It has two more microservices one for eureka server and one for api gateway.
 ## HowTo
 **Step 1.** Database Setup
 * create schema in MySQL > `CREATE DATABASE airportdb`
-* create tables by running [airportdbdump.sql](https://github.com/SirajChaudhary/microservices-using-spring-boot-with-spring-cloud/blob/master/airportdb.sql) in mysql workbench
+* create tables by running [airportdb.sql](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/blob/master/airportdb.sql) dump file in MySQL Workbench
 
 **Step 2.** Configure lombok for your eclipse IDE (i.e. run lombok.jar)
 

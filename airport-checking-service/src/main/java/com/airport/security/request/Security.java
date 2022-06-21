@@ -6,7 +6,7 @@
  * https://www.linkedin.com/in/sirajchaudhary/
  */
 
-package com.airport.checking.request;
+package com.airport.security.request;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -15,7 +15,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class Checking {
+public class Security {
 
 	private String identityProof;
 
