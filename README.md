@@ -83,8 +83,16 @@ It has two more microservices one for eureka server and one for api gateway.
 * update your database credentials in the .properties file wherever it is used in all microservices.
 * update YOUR_GMAIL_USERNAME/YOUR_GMAIL_PASSWORD in the [.properties file](./airport-bookings-service/src/main/resources/application.yml) of airport-booking-service.  
 
-**Step 6.** Build all microservices (Before that make sure we have set Java Build Path of each microservice to JDK 11)
-* `mvn clean install`
+**Step 6.** Build all microservices `mvn clean install`
+<br />- we should build in the following sequence but before that make sure we have set Java Build Path of each microservice to JDK 11
+* eureka-server
+* api-gateway
+* airport-pilot-service
+* airport-flight-service
+* airport-booking-service
+* airport-security-service
+* airport-checkin-service
+* airport-boarding-service
 
 **Step 7.** Run the microservices in the following sequence.
 * eureka-server
