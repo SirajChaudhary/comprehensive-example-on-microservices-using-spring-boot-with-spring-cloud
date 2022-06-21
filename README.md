@@ -74,7 +74,7 @@ It has two more microservices one for eureka server and one for api gateway.
 
 **Step 2.** Configure lombok for your eclipse IDE (i.e. run lombok.jar)
 
-**Step 3.** Clone the project from [github](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud.git)
+**Step 3.** Clone the project
 > git clone https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud.git
 
 **Step 4.** Import into your eclipse IDE
