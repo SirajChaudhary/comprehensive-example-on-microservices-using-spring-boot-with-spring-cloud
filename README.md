@@ -138,7 +138,7 @@ It will be used just for testing purpose. It won't route via API Gateway. We run
 API calls will route via API Gateway (2021) only!
 
 * [An API to create a new pilot](./snapshots/airport-pilot-service-create-new-pilot.PNG) <br />
-> **URL:** localhost:2021/airport-pilot-service/api/v1/pilot <br />
+> **URL:** localhost:2021/airport-pilot-service/api/v1/pilots <br />
 **Method:** POST <br />
 **RequestBody:** {
     "name": "Ashutosh Sharma",
@@ -147,7 +147,7 @@ API calls will route via API Gateway (2021) only!
 }
 
 * [An API to create a new flight](./snapshots/airport-flight-service-create-new-flight.PNG) <br />
-> **URL:** localhost:2021/airport-flight-service/api/v1/flight <br />
+> **URL:** localhost:2021/airport-flight-service/api/v1/flights <br />
 **Method:** POST <br />
 **RequestBody:** {
   "vendor": "AirIndia",
@@ -160,7 +160,7 @@ API calls will route via API Gateway (2021) only!
 }
 
 * [An API to create a new booking](./snapshots/airport-booking-service-create-new-booking.PNG) <br />
-> **URL:** localhost:2021/airport-booking-service/api/v1/booking <br />
+> **URL:** localhost:2021/airport-booking-service/api/v1/bookings <br />
 **Method:** POST <br />
 **RequestBody:** {
   "fullname": "Bill Gates",
@@ -171,7 +171,7 @@ API calls will route via API Gateway (2021) only!
 }
 
 * [An API to create a new security check](./snapshots/airport-security-service-create-new-security.PNG) <br />
-> **URL:** localhost:2021/airport-security-service/api/v1/security <br />
+> **URL:** localhost:2021/airport-security-service/api/v1/securities <br />
 **Method:** POST <br />
 **RequestBody:** {
     "identityProof": "passport",
@@ -191,7 +191,7 @@ API calls will route via API Gateway (2021) only!
 }
 
 * [An API to get complete details of a boarding](./snapshots/airport-boarding-service-get-a-boarding-details.PNG) <br />
-> **URL:** localhost:2021/airport-boarding-service/api/v1/boarding/find-by-booking-id/1 <br />
+> **URL:** localhost:2021/airport-boarding-service/api/v1/boardings/find-by-booking-id/1 <br />
 **Method:** GET <br />
 
 ![output](./snapshots/airport-boarding-service-get-a-boarding-details.PNG)
