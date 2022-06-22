@@ -18,6 +18,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.CachePut;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.airport.pilot.entity.PilotEntity;
 import com.airport.pilot.exception.PilotCustomException;
@@ -28,8 +29,9 @@ import com.airport.pilot.response.PilotResponse;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
-@CacheConfig(cacheNames = { "airport-pilot-service-cache" })
 @Service
+@CacheConfig(cacheNames = { "airport-pilot-service-cache" })
+@Transactional(readOnly = true)
 public class PilotServiceImpl implements PilotService {
 
 	@Autowired
@@ -38,6 +40,7 @@ public class PilotServiceImpl implements PilotService {
 	private static final ModelMapper modelMapper = new ModelMapper();
 
 	@Override
+	@Transactional
 	public PilotResponse createPilot(Pilot pilot) {
 
 		/*
@@ -96,6 +99,7 @@ public class PilotServiceImpl implements PilotService {
 
 	@Override
 	@CachePut(key = "#id")
+	@Transactional
 	public PilotResponse updatePilot(Pilot pilot, Long id) {
 
 		log.info("updating an existing pilot " + id);
@@ -117,6 +121,7 @@ public class PilotServiceImpl implements PilotService {
 
 	@Override
 	@CacheEvict
+	@Transactional
 	public void deletePilot(Long id) {
 
 		log.info("deleting an existing pilot " + id);

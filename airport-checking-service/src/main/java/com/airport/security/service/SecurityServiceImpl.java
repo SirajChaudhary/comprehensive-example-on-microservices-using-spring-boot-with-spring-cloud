@@ -11,6 +11,7 @@ package com.airport.security.service;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.airport.security.entity.SecurityEntity;
 import com.airport.security.exception.SecurityCustomException;
@@ -22,6 +23,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@Transactional(readOnly = true)
 public class SecurityServiceImpl implements SecurityService {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
@@ -30,6 +32,7 @@ public class SecurityServiceImpl implements SecurityService {
 	SecurityRepository securityRepository;
 
 	@Override
+	@Transactional
 	public SecurityResponse createSecurity(Security security) {
 
 		/* throw a custom exception on a condition */

@@ -11,6 +11,7 @@ package com.airport.checkin.service;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.airport.checkin.entity.CheckinEntity;
 import com.airport.checkin.repository.CheckinRepository;
@@ -21,6 +22,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@Transactional(readOnly = true)
 public class CheckinServiceImpl implements CheckinService {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
@@ -29,6 +31,7 @@ public class CheckinServiceImpl implements CheckinService {
 	CheckinRepository checkinRepository;
 
 	@Override
+	@Transactional
 	public CheckinResponse createCheckin(Checkin checkin) {
 
 		/* log is static variable declared in @Slf4j */

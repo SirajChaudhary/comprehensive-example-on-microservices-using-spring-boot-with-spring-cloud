@@ -13,6 +13,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.airport.bookings.email.BookingEmailService;
 import com.airport.bookings.entity.BookingEntity;
@@ -22,11 +23,12 @@ import com.airport.bookings.request.Booking;
 import com.airport.bookings.response.BookingResponse;
 import com.airport.bookings.util.GeneratePNRNumber;
 
-import javassist.NotFoundException;
+//import javassist.NotFoundException;
 import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@Transactional(readOnly = true)
 public class BookingServiceImpl implements BookingService {
 
 	private static final ModelMapper modelMapper = new ModelMapper();
@@ -44,6 +46,7 @@ public class BookingServiceImpl implements BookingService {
 	FlightFeignClient flightFeignClient;
 
 	@Override
+	@Transactional
 	public BookingResponse createBooking(Booking booking) {
 		log.info("starting bookingTicket() service method");
 

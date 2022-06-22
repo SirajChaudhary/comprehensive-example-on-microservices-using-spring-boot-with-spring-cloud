@@ -13,6 +13,7 @@ import java.util.Optional;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import com.airport.flight.circuitbreaker.PilotServiceCircuitBreaker;
 import com.airport.flight.entity.FlightEntity;
@@ -26,6 +27,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @Slf4j
 @Service
+@Transactional(readOnly = true)
 public class FlightServiceImpl implements FlightService {
 
 	@Autowired
@@ -40,6 +42,7 @@ public class FlightServiceImpl implements FlightService {
 	private static final ModelMapper modelMapper = new ModelMapper();
 
 	@Override
+	@Transactional
 	public FlightResponse createFlight(Flight flight) {
 
 		log.info("starting createFlight() service method");
@@ -84,6 +87,7 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
+	@Transactional
 	public FlightResponse updateFlight(long id, Flight flight) {
 
 		log.info("updating flight " + id);
@@ -112,6 +116,7 @@ public class FlightServiceImpl implements FlightService {
 	}
 
 	@Override
+	@Transactional
 	public void deleteFlight(long id) {
 		log.info("deleting flight " + id);
 		flightRepository.deleteById(id);
