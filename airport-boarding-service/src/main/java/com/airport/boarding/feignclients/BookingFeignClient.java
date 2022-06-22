@@ -20,6 +20,6 @@ import com.airport.boarding.response.BookingResponse;
 @FeignClient(value = "api-gateway/airport-booking-service")
 public interface BookingFeignClient {
 
-	@GetMapping("/api/v1/booking/{bookingId}")
+	@GetMapping("/api/v1/bookings/{bookingId}")
 	public ResponseEntity<BookingResponse> getBookingByBookingId(@PathVariable long bookingId);
 }

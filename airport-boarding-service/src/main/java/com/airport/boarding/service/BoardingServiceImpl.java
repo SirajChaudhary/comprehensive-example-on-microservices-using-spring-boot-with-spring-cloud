@@ -13,7 +13,7 @@ import org.springframework.stereotype.Service;
 
 import com.airport.boarding.feignclients.BookingFeignClient;
 import com.airport.boarding.feignclients.CheckinFeignClient;
-import com.airport.boarding.feignclients.CheckingFeignClient;
+import com.airport.boarding.feignclients.SecurityFeignClient;
 import com.airport.boarding.response.BoardingResponse;
 
 import lombok.extern.slf4j.Slf4j;
@@ -29,7 +29,7 @@ public class BoardingServiceImpl implements BoardingService {
 	CheckinFeignClient checkinFeignClient;
 
 	@Autowired
-	CheckingFeignClient checkingFeignClient;
+	SecurityFeignClient securityFeignClient;
 
 	@Override
 	public BoardingResponse findBoardingByBookingId(Long bookingId) {
@@ -37,7 +37,7 @@ public class BoardingServiceImpl implements BoardingService {
 		BoardingResponse boardingResponse = new BoardingResponse();
 		boardingResponse.setBookingResponse(bookingFeignClient.getBookingByBookingId(bookingId).getBody());
 		boardingResponse.setCheckinResponse(checkinFeignClient.findCheckinByBookingId(bookingId).getBody());
-		boardingResponse.setCheckingResponse(checkingFeignClient.findCheckingByBookingId(bookingId).getBody());
+		boardingResponse.setSecurityResponse(securityFeignClient.findSecurityByBookingId(bookingId).getBody());
 		return boardingResponse;
 	}
 }

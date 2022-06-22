@@ -35,6 +35,6 @@ public interface FlightFeignClient {
 	 * airport-flight-service service
 	 */
 
-	@GetMapping("/api/v1/flight/{id}")
+	@GetMapping("/api/v1/flights/{id}")
 	public ResponseEntity<FlightResponse> getFlightById(@PathVariable Long id);
 }

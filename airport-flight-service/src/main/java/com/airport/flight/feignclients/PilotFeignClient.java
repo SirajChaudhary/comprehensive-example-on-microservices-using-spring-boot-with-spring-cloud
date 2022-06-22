@@ -32,6 +32,6 @@ import com.airport.flight.response.PilotResponse;
 @FeignClient(value = "api-gateway/airport-pilot-service")
 public interface PilotFeignClient {
 
-	@GetMapping("/api/v1/pilot/{id}")
+	@GetMapping("/api/v1/pilots/{id}")
 	public ResponseEntity<PilotResponse> getPilotById(@PathVariable Long id);
 }

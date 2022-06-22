@@ -18,6 +18,6 @@ import lombok.ToString;
 public class BoardingResponse {
 
 	private CheckinResponse checkinResponse;
-	private CheckingResponse checkingResponse;
+	private SecurityResponse securityResponse;
 	private BookingResponse bookingResponse;
 }

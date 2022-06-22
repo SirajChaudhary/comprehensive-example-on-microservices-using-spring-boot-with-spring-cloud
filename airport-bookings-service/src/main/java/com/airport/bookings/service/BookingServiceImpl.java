@@ -61,7 +61,7 @@ public class BookingServiceImpl implements BookingService {
 		bookingResponse.setFlightResponse(flightFeignClient.getFlightById(bookingEntity.getFlightNumber()).getBody());
 
 		/* email the booking information to the passenger */
-		bookingEmailService.sendEmail(bookingResponse.getEmail(), "Flight Booking Confirmed", bookingResponse);
+		// bookingEmailService.sendEmail(bookingResponse.getEmail(), "Flight Booking Confirmed", bookingResponse);
 
 		return bookingResponse;
 	}

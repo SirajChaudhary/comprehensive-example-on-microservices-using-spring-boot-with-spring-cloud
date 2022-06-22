@@ -15,7 +15,7 @@ import lombok.ToString;
 @Getter
 @Setter
 @ToString
-public class CheckingResponse {
+public class SecurityResponse {
 
 	private long id;
 
