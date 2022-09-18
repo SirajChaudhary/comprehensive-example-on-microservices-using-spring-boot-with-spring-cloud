@@ -1,0 +1,591 @@
+{
+	"info": {
+		"_postman_id": "eba0014c-82c5-4102-9772-57a8bbcd978b",
+		"name": "airport-api-postman-collection",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "localhost:2021/airport-pilot-service/api/v1/pilots",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ashutosh Sharma\",\r\n    \"designation\": \"Sr. Captain\",\r\n    \"experience\": \"22 Year\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-pilot-service/api/v1/pilots",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-pilot-service",
+						"api",
+						"v1",
+						"pilots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-pilot-service/api/v1/pilots/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-pilot-service/api/v1/pilots/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-pilot-service",
+						"api",
+						"v1",
+						"pilots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-pilot-service/api/v1/pilots",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-pilot-service/api/v1/pilots",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-pilot-service",
+						"api",
+						"v1",
+						"pilots"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-pilot-service/api/v1/pilots/1",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"name\": \"Ashutosh Sharma\",\r\n    \"designation\": \"Sr. Super Captain\",\r\n    \"experience\": \"22 Year\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-pilot-service/api/v1/pilots/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-pilot-service",
+						"api",
+						"v1",
+						"pilots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-pilot-service/api/v1/pilots/find-by-designation",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-pilot-service/api/v1/pilots/find-by-designation?designation=Sr. Super Captain",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-pilot-service",
+						"api",
+						"v1",
+						"pilots",
+						"find-by-designation"
+					],
+					"query": [
+						{
+							"key": "designation",
+							"value": "Sr. Super Captain"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-pilot-service/api/v1/pilots/flush-cache",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-pilot-service/api/v1/pilots/flush-cache",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-pilot-service",
+						"api",
+						"v1",
+						"pilots",
+						"flush-cache"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-pilot-service/api/v1/pilots/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-pilot-service/api/v1/pilots/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-pilot-service",
+						"api",
+						"v1",
+						"pilots",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-flight-service/api/v1/flights",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vendor\": \"AirIndia\",\r\n    \"source\": \"Delhi\",\r\n    \"destination\": \"London\",\r\n    \"departureDate\": \"08/08/2021\",\r\n    \"departureTime\": \"10:15pm\",\r\n    \"status\": \"On Time\",\r\n    \"pilotId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-flight-service/api/v1/flights",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-flight-service",
+						"api",
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-flight-service/api/v1/flights/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-flight-service/api/v1/flights/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-flight-service",
+						"api",
+						"v1",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-flight-service/api/v1/flights",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"vendor\": \"AirIndia\",\r\n    \"source\": \"Delhi\",\r\n    \"destination\": \"London\",\r\n    \"departureDate\": \"08/08/2021\",\r\n    \"departureTime\": \"11:15pm\",\r\n    \"status\": \"Delay by 1 hour\",\r\n    \"pilotId\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-flight-service/api/v1/flights/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-flight-service",
+						"api",
+						"v1",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-flight-service/api/v1/flights/1",
+			"request": {
+				"method": "DELETE",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-flight-service/api/v1/flights/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-flight-service",
+						"api",
+						"v1",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-flight-service/api/v1/flights/1?source&destination&departureDate",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-flight-service/api/v1/flights/1?source=Delhi&destination=London&departureDate=08/08/2021",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-flight-service",
+						"api",
+						"v1",
+						"flights",
+						"1"
+					],
+					"query": [
+						{
+							"key": "source",
+							"value": "Delhi"
+						},
+						{
+							"key": "destination",
+							"value": "London"
+						},
+						{
+							"key": "departureDate",
+							"value": "08/08/2021"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-booking-service/api/v1/bookings",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"fullname\": \"Bill Gates\",\r\n    \"mobile\": \"9100800123\",\r\n    \"email\": \"mr.billgates@yahoo.com\",\r\n    \"address\": \"stree1, adambakham\",\r\n    \"flightNumber\": 1\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-booking-service/api/v1/bookings",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-booking-service",
+						"api",
+						"v1",
+						"bookings"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-booking-service/api/v1/bookings/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-booking-service/api/v1/bookings/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-booking-service",
+						"api",
+						"v1",
+						"bookings",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-booking-service/api/v1/bookings/find-by-pnr?pnrNumber=e32c86",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-booking-service/api/v1/bookings/find-by-pnr?pnrNumber=e32c86",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-booking-service",
+						"api",
+						"v1",
+						"bookings",
+						"find-by-pnr"
+					],
+					"query": [
+						{
+							"key": "pnrNumber",
+							"value": "e32c86"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-security-service/api/v1/securities",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"identityProof\": \"passport\",\r\n    \"covidReport\": \"-ve\",\r\n    \"ctScan\": \"done\",\r\n    \"status\": \"done\",\r\n    \"bookingId\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-security-service/api/v1/securities",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-security-service",
+						"api",
+						"v1",
+						"securities"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-security-service/api/v1/securities/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-security-service/api/v1/securities/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-security-service",
+						"api",
+						"v1",
+						"securities",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-security-service/api/v1/securities/find-by-booking-id/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-security-service/api/v1/securities/find-by-booking-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-security-service",
+						"api",
+						"v1",
+						"securities",
+						"find-by-booking-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-checkin-service/api/v1/checkin",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"checkInBags\": \"5\",\r\n    \"cabinBags\": \"2\",\r\n    \"bookingId\": \"1\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:2021/airport-checkin-service/api/v1/checkin",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-checkin-service",
+						"api",
+						"v1",
+						"checkin"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-checkin-service/api/v1/checkin/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-checkin-service/api/v1/checkin/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-checkin-service",
+						"api",
+						"v1",
+						"checkin",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-checkin-service/api/v1/checkin/find-by-booking-id/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-checkin-service/api/v1/checkin/find-by-booking-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-checkin-service",
+						"api",
+						"v1",
+						"checkin",
+						"find-by-booking-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "localhost:2021/airport-boarding-service/api/v1/boardings/find-by-booking-id/1",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:2021/airport-boarding-service/api/v1/boardings/find-by-booking-id/1",
+					"host": [
+						"localhost"
+					],
+					"port": "2021",
+					"path": [
+						"airport-boarding-service",
+						"api",
+						"v1",
+						"boardings",
+						"find-by-booking-id",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
