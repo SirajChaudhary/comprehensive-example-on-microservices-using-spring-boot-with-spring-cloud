@@ -1,0 +1,60 @@
+spring:
+  application:
+    # UNIQUE NAME OF THIS MICROSERVICE
+    name: airport-pilot-service
+  # ANSI CONSOLE OUTPUT (COLOR LOGS WILL BE DISPLAYED)
+  output:
+    ansi:
+      enabled: ALWAYS
+  # DATABASE CREDENTIALS
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/airportdb'
+    username: root
+    password: Siraj123
+  # SHOW THE QUERY ON CONSOLE WHICH HIT THE DB
+  jpa:
+    show-sql: true
+  # ZIPKIN SERVER
+  zipkin:
+    base-url: 'http://localhost:9411'
+
+server:
+  # TO RUN THIS MICROSERVICE ON RANDOM SERVER PORT 'server.port=0'
+  # SERVER PORT OF THIS MICROSERVICE
+  port: '8081'
+
+# EUREKA SERVER URL
+eureka:
+  client:
+    service:
+      url:
+        defaultZone: 'http://localhost:8761/eureka'
+
+# SWAGGER-UI CUSTOM URL
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# ACTUATOR WEB ENDPOINTS EXPOSURE
+management:
+  endpoints:
+    web:
+      exposure:
+        # EXPOSE ALL THE ACTUATOR WEB ENDPOINTS IF SECURITY IS NOT YOUR CONCERN!
+        include: "*"
+    # CORS LETS YOU SPECIFY WHAT CROSS DOMAIN REQUESTS ARE AUTHORIZED.
+    # CORS SUPPORT IS DISABLED BY DEFAULT AND TO ENABLE IT SET FOLLOWING PROPERTIES. 
+    # https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html
+    cors:
+      allowed-origins: http://localhost:2021
+      allowed-methods: GET,POST,PUT,DELETE
+  # GET DETAIL INFORMATION OF ACTUATOR HEALTH ENDPOINT 
+  endpoint:    
+    health:
+      show-details: always
+# ACTUATOR WEB INFO ENDPOINT OF THIS MICROSERVICE
+# E.g. You can get info endpoint with this URL http://localhost:2021/airport-pilot-service/actuator/info
+info:
+  name: Aiport Pilot Service
+  description: Its a microservice for pilot service
+  author: Siraj Chaudhary

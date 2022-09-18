@@ -1,0 +1,30 @@
+spring:
+  application:
+    # NAME OF EUREKA SERVER
+    name: eureka-server
+  # ANSI CONSOLE OUTPUT (COLOR LOGS WILL BE DISPLAYED)
+  output:
+    ansi:
+      enabled: ALWAYS
+
+# EUREKA SERVER PORT
+server:
+  port: '8761'
+
+# EUREKA SERVER PROPERTIES
+eureka:
+  client:
+    register-with-eureka: 'false'
+    fetch-registry: 'false'
+
+# ACTUATOR WEB ENDPOINTS EXPOSURE
+management:
+  endpoints:
+    web:
+      exposure:
+        # EXPOSE ALL THE ACTUATOR WEB ENDPOINTS IF SECURITY IS NOT YOUR CONCERN!
+        include: "*"
+  # GET DETAIL INFORMATION OF ACTUATOR HEALTH ENDPOINT 
+  endpoint:    
+    health:
+      show-details: always

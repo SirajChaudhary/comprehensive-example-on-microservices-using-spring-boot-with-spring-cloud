@@ -1,0 +1,23 @@
+# Note: You can use hazelcast.yaml OR hazelcast.xml OR @Bean for hazelcast cache configuration.
+# You can see more properties in the following sample file to configure hazelcast.yaml
+# https://github.com/hazelcast/hazelcast/blob/master/hazelcast/src/main/resources/hazelcast-full-example.yaml
+
+hazelcast:
+  network:
+    join:
+      multicast:
+        enabled: true
+  instance-name: hazelcast-instance
+  map:
+    default:
+      # Note: Maximum number of seconds for each entry to stay in the Cache.
+      time-to-live-seconds: 60
+      # Maximum number of seconds each entry can stay in the Near Cache as untouched (not read).
+      max-idle-seconds: 60
+      eviction:
+        # You need to select cache evict policy such as None, LRU, LFU, Random 
+        eviction-policy: LRU
+        # Maximum size policy for eviction of the Cache.
+        max-size-policy: PER_NODE
+        # Maximum size (entry count) of the Cache.
+        size: 5000

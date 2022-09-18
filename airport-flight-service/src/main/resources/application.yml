@@ -1,0 +1,73 @@
+spring:
+  application:
+    # UNIQUE NAME OF THIS MICROSERVICE
+    name: airport-flight-service
+  # ANSI CONSOLE OUTPUT (COLOR LOGS WILL BE DISPLAYED)
+  output:
+    ansi:
+      enabled: ALWAYS
+  # DATABASE CREDENTIALS
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/airportdb'
+    username: root
+    password: Siraj123
+  # ZIPKIN SERVER URL
+  zipkin:
+    base-url: 'http://localhost:9411'
+
+server:
+  # TO RUN THIS MICROSERVICE ON RANDOM SERVER PORT 'server.port=0'
+  # SERVER PORT OF THIS MICROSERVICE
+  port: '8082'
+
+# EUREKA SERVER URL
+eureka:
+  client:
+    service:
+      url:
+        defaultZone: 'http://localhost:8761/eureka'
+
+# SPRING CLOUD CIRCUIT BREAKER WITH RESILIENCE4J IMPLEMENTATION
+# Spring Cloud Circuit breaker provides an abstraction across different circuit breaker implementations 
+# i.e Hystrix, Resilience4j, Sentinel, Spring Retry
+# circuit breaker switch is indicated with following terms 
+# i.e. UP means switch is closed and so allowed all the calls closed - UP, open - DOWN, half-open - UNKNOWN
+resilience4j:
+  circuitbreaker:
+    instances:
+      airportPilotService:
+        # slidingWindowSize indicate (e.g. 5) after how many calls the switch will be open or close
+        slidingWindowSize: '5'
+        # we are now setting threshold value here like failure rate is greater then 60% make the switch open(DOWN)
+        failureRateThreshold: '60'
+        # switch will wait 50 seconds in open(DOWN) state so the down service airport-pilot-service get 50 seconds to recover
+        waitDurationInOpenState: '50000'
+        # after 50 seconds making switch as half open
+        automaticTransitionFromOpenToHalfOpenEnabled: 'true'
+        # allow 4 calls in half-open state of switch
+        permittedNumberOfCallsInHalfOpenState: '4'
+        allowHealthIndicatorToFail: 'true'
+        registerHealthIndicator: 'true'
+# To check current state of switch we need to set actuator
+management:
+  health:
+    circuitbreakers:
+      enabled: 'true'
+  endpoints:
+    web:
+      exposure:
+        include: health
+  endpoint:
+    health:
+      show-details: always
+
+# SWAGGER-UI CUSTOM URL
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# AIRPORT-PILOT-SERVICE URL
+airport:
+  pilot:
+    service:
+      url: 'http://localhost:8081'

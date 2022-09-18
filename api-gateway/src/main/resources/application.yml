@@ -1,0 +1,48 @@
+########## N O T E ########## 
+# Spring Cloud API Gateway does load balancing for a microservice instances automatically
+# It means we don't need to use implement Spring Cloud Load Balancer if we use Spring Cloud API Gateway
+# You can test this scenario by running airport-pilot-service two times (on two ports 8081 and 9081) and check how the load balancing happening for requests on round robbin passion */
+# Spring Cloud Load Balancer is a replacement of Ribbon. (Spring Cloud Netflix Ribbon has been deprecated).
+
+server:
+  # PORT OF API-GATEWAY
+  port: '2021'
+
+spring:
+  application:
+    # UNIQUE NAME OF API-GATEWAY
+    name: api-gateway
+  # ANSI CONSOLE OUTPUT (COLOR LOGS WILL BE DISPLAYED)
+  output:
+    ansi:
+      enabled: ALWAYS
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          enabled: 'true'
+          # MICROSERVICE NAMES IN EUREKA SERVER WILL BE HANDLED IN LOWERCASE
+          lower-case-service-id: 'true'
+  # SLEUTH PROPERTY
+  sleuth:
+    reactor:
+      instrumentation-type: decorate-on-each
+
+# EUREKA SERVER URL
+eureka:
+  client:
+    service:
+      url:
+        defaultZone: 'http://localhost:8761/eureka'
+
+# ACTUATOR WEB ENDPOINTS EXPOSURE
+management:
+  endpoints:
+    web:
+      exposure:
+        # EXPOSE ALL THE ACTUATOR WEB ENDPOINTS IF SECURITY IS NOT YOUR CONCERN!
+        include: "*"
+  # GET DETAIL INFORMATION OF ACTUATOR HEALTH ENDPOINT 
+  endpoint:    
+    health:
+      show-details: always

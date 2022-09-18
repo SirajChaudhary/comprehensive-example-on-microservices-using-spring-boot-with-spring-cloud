@@ -1,0 +1,66 @@
+spring:
+  application:
+    # UNIQUE NAME OF THIS MICROSERVICE
+    name: airport-booking-service
+  # ANSI CONSOLE OUTPUT (COLOR LOGS WILL BE DISPLAYED)
+  output:
+    ansi:
+      enabled: ALWAYS
+  # DATABASE CREDENTIALS
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/airportdb'
+    username: root
+    password: Siraj123
+  # SEND MAIL PROPERTIES
+  mail:
+    host: smtp.gmail.com
+    port: '587'
+    username: YOUR_GMAIL_USERNAME
+    password: YOUR_GMAIL_PASSWORD
+    properties:
+      mail:
+        smtp:
+          auth: 'true'
+          connectiontimeout: '5000'
+          timeout: '5000'
+          writetimeout: '5000'
+          starttls:
+            enable: 'true'
+  # ZIPKIN SERVER URL
+  zipkin:
+    base-url: 'http://localhost:9411'
+
+server:
+  # SERVER PORT OF THIS MICROSERVICE
+  # TO RUN THIS MICROSERVICE ON RANDOM SERVER PORT 'server.port=0'
+  port: '8083'
+
+# EUREKA SERVER URL
+eureka:
+  client:
+    service:
+      url:
+        defaultZone: 'http://localhost:8761/eureka'
+
+# SWAGGER-UI CUSTOM PATH
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# ACTUATOR WEB ENDPOINTS EXPOSURE
+management:
+  endpoints:
+    web:
+      exposure:
+        # EXPOSE ALL THE ACTUATOR WEB ENDPOINTS IF SECURITY IS NOT YOUR CONCERN!
+        include: "*"
+  # GET DETAIL INFORMATION OF ACTUATOR HEALTH ENDPOINT 
+  endpoint:    
+    health:
+      show-details: always
+
+# AIRPORT-FLIGHT-SERVICE URL
+airport:
+  flight:
+    service:
+      url: 'http://localhost:8082'

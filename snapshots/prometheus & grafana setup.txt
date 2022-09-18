@@ -1,0 +1,118 @@
+Prometheus & Grafana: Monitoring & Alerting systems
+
+
+-These tools are used together for monitoring & alerting the microservices.
+-They work on top of the Actuator. 
+Actuator endpoints -> (Micrometer) -> Prometheus datasource -> Grafana GUI
+-The Prometheus datasource gets different data of a spring boot microserivce (E.g. memory consumption) using actuator endpoints and then Grafana query that data for better display. 
+-They monitor logs and actuator web endpoints of your microservice and send the alerts (i.e. mail alert if so and so error occurs)
+-The data visualization by grafana can be metrics (% memory consumption, CPU load..) and logs.
+
+
+Prometheus: An open-source monitoring system with a dimensional data model, flexible query language, efficient time series database and modern alerting approach.
+
+Prometheus Setup
+
+Step1: Add Actuator dependency into all your microserivces which you wanna monitor
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-actuator</artifactId>
+</dependency>
+
+Step2: Add Actuator properties into your microserivces
+management.endpoints.web.exposure.include=*
+management.endpoint.health.show-details=always
+
+Step3: You can access actuator web endpoints of your microserivces
+E.g. http://localhost:8081/actuator (Or http://localhost:2021/airport-pilot-service/actuator)
+Similarly all microserivces actuator web endpoints you can check with their respective ports.
+
+Note: To display the actuator web endpoint metrics on Grafana GUI we need to customize it using Prometheus datasource system.
+
+Step4: Add Prometheus dependency into your microserivces
+<dependency>
+    <groupId>io.micrometer</groupId>
+    <artifactId>micrometer-registry-prometheus</artifactId>
+    <version>1.7.5</version>
+</dependency>
+
+
+You can see new actuator prometheus endpoints which provide different health metrics.
+E.g. http://localhost:8081/actuator/prometheus
+
+Step5: Download Prometheus server from
+prometheus.io/download/
+
+Step6: Update prometheus.yml (add following configuration at the last of the file)
+- job_name: "airport-actuator-prometheus"
+    metrics_path: '/actuator/prometheus'
+    scrape_interval: 5s
+    static_configs:
+    - targets: ['localhost:8081', 'localhost:8082', 'localhost:8083', 'localhost:8084', 'localhost:8085', 'localhost:8086', 'localhost:8761', 'localhost:2021', ]
+
+Step7: Start Prometheus server by running prometheus.exe
+
+Step8: Run prometheus server (prometheus server run on default port is 9090)
+localhost:9090
+
+Step9: Select different metrics E.g. go_memstats_alloc_bytes from metrics explorer and check graph
+
+
+Note: Prometheus UI is not upto the mark so we use Grafana which is more advance UI to display different metrics.
+
+
+
+
+Grafana: It is a multi-platform open source analytics and interactive visualization web application. It provides charts, graphs, and alerts for the web when connected to supported data sources.
+
+Grafana Setup
+
+Step1: Download Grafana server
+https://grafana.com/
+
+Step2: Start Grafana server
+grafana-server.exe
+
+Step3: Run Grafana server (grafana server runs on default port 3000 and default username & password is admin/admin)
+localhost:3000
+
+
+Step4 (Optional): You can create your own customized dashboard having your panels or you can use ready made dashboards.
+-To add datasource: click configuration -> datasource -> add datasource (i.e. prometheus) -> add prometheus url -> save & test.
+-To add a new panel: click dashboard -> add empty panel -> add prometheus query (i.e. go_memstats_alloc_bytes) -> increase timer -> apply.
+Similarly you can create different panels onto your grafana server dashboard for different monitoring.
+
+Note: You can save & download the JSON of your configured dashboard.
+
+
+Step5: You can download free dashboards from internet (instead of creating from scratch) and use it.
+E.g. You can download a spring boot related grafana dashboard (download dashboard json)
+https://grafana.com/grafana/dashboards/12900
+
+Step6: Import downloaded grafana dashboard json into your grafana server
+E.g. on grafana dashboard -> import -> dashboard json file -> select your datasource (prometheus) -> import.
+
+Note: We can set email alerts with Grafana.
+
+Step7: Update following file for email alerts
+{grafana-server-path}/conf/default.ini
+
+[smtp]
+enabled = true
+host = smtp.gmail.com:465
+user = mr.sirajchaudhary@gmail.com
+password = XXXXXXXX
+
+Step8: Restart Grafana server.
+
+Step9: Add notification channel in grafana server,
+click notification channel -> add channel -> add email which will be notified -> test
+
+Step10: You can play now. E.g. select & edit any resource (i.e CPU usage)
+-set query threshold
+-set a alert rule
+you will get a CPI usage alert on email
+
+
+
+Note: Docker images are also available for Prometheus & Grafana, if you wanna use it instead of these setup.

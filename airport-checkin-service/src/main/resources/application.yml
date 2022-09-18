@@ -1,0 +1,68 @@
+spring:
+  application:
+    # UNIQUE NAME OF THIS MICROSERVICE
+    name: airport-checkin-service
+  # ANSI CONSOLE OUTPUT (COLOR LOGS WILL BE DISPLAYED)
+  output:
+    ansi:
+      enabled: ALWAYS
+  # DATABASE CREDENTIALS
+  datasource:
+    url: 'jdbc:mysql://localhost:3306/airportdb'
+    username: root
+    password: Siraj123
+  # ZIPKIN SERVER URL
+  zipkin:
+    base-url: 'http://localhost:9411'
+
+server:
+  # TO RUN THIS MICROSERVICE ON RANDOM SERVER PORT 'server.port=0'
+  # SERVER PORT OF THIS MICROSERVICE
+  port: '8085'
+
+# EUREKA SERVER URL
+eureka:
+  client:
+    service:
+      url:
+        defaultZone: 'http://localhost:8761/eureka'
+
+# SWAGGER-UI CUSTOM PATH
+springdoc:
+  swagger-ui:
+    path: /swagger-ui.html
+
+# ACTUATOR WEB ENDPOINTS EXPOSURE
+management:
+  endpoints:
+    web:
+      exposure:
+        # EXPOSE ALL THE ACTUATOR WEB ENDPOINTS IF SECURITY IS NOT YOUR CONCERN!
+        include: "*"
+  # GET DETAIL INFORMATION OF ACTUATOR HEALTH ENDPOINT 
+  endpoint:    
+    health:
+      show-details: always
+
+# LOGGING CONFIGURATIONS 
+# Spring Boot supports different logging providers such as Java Util Logging, Log4j2 and logback based on configuration provided
+# Logback is default logging framework for spring boot.
+# Logback herarchy levels are ALL -> TRACE -> DEBUG -> INFO -> WARN -> ERROR -> FATAL -> OFF
+# We'll use SLF4J with Logback implementation (Faccade Design Pattern). 
+# SLF4J, Logback are part of spring-boot-starter-web dependency. 
+# If we don't define following properties it picks default properties i.e. logging.level=info
+logging:
+  level:
+    root: DEBUG
+    # LOGGING FOR SPECIFIC PACKAGE
+    com:
+      airport:
+        checkin:
+          controller: TRACE
+  pattern:
+    # console: '"%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level %logger{36} - %msg%n"'
+    file: '"%d{yyyy-MM-dd HH:mm:ss} - %msg%n"'
+  file:
+    name: src/main/resources/logs/checkin-service-logfile.log
+    max-size: 10MB
+    clean-history-on-start: 'true'
