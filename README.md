@@ -26,45 +26,41 @@ It has two more microservices one for eureka server and one for api gateway.
 ## Technology Stack
 * **Spring Boot** (Starter)
 	* **Web**
-		* <sub>RESTful API <sup>[link1](./airport-pilot-service/src/main/java/com/airport/pilot/controller/PilotController.java), [link2](./airport-pilot-service/src/main/java/com/airport/pilot/service/PilotServiceImpl.java), [link3](./airport-pilot-service/src/main/java/com/airport/pilot/request/Pilot.java), [link4](./airport-pilot-service/src/main/java/com/airport/pilot/response/PilotResponse.java), [link5](./airport-pilot-service/src/main/resources/application.yml), [link6](./airport-pilot-service/pom.xml)</sup></sub>
-		* <sub>@ControllerAdvice (Exception Handling)</sub> 
-			* <sub>global <sup>[link](./airport-pilot-service/src/main/java/com/airport/pilot/exception/PilotControllerAdvicer.java)</sup></sub>
-			* <sub>custom <sup>[link1](./airport-pilot-service/src/main/java/com/airport/pilot/exception/PilotCustomException.java), [link2](./airport-pilot-service/src/main/java/com/airport/pilot/service/PilotServiceImpl.java)</sup></sub>
-		* <sub>SLF4J with Logback (Logging) <sup>[link1](./airport-checkin-service/src/main/resources/application.yml), [link2](./airport-checkin-service/src/main/java/com/airport/checkin/service/CheckinServiceImpl.java)</sup></sub>
-			* <sub>ANSIConsole plugin (colorful Logs) <sup>[link1](./snapshots/ansi%20console%20plugin%20installation.PNG), [link2](./snapshots/ansi%20console%20properties%20and%20display%20color%20output%20logs.PNG)</sup></sub>
+		* <sub>RESTful API <sup>[controller](./airport-pilot-service/src/main/java/com/airport/pilot/controller/PilotController.java), [service](./airport-pilot-service/src/main/java/com/airport/pilot/service/PilotServiceImpl.java), [repository](./airport-pilot-service/src/main/java/com/airport/pilot/repository/PilotRepository.java), [entity](./airport-pilot-service/src/main/java/com/airport/pilot/entity/PilotEntity.java), [VO](./airport-pilot-service/src/main/java/com/airport/pilot/request/Pilot.java), [DTO](./airport-pilot-service/src/main/java/com/airport/pilot/response/PilotResponse.java), [yml](./airport-pilot-service/src/main/resources/application.yml), [pom](./airport-pilot-service/pom.xml)</sup></sub>
+		* <sub>@ControllerAdvice <sup>[exception handling](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/ControllerAdvice-Annotation)</sup></sub>
+		* <sub>SLF4J with Logback <sup>[logging](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/SLF4J-with-Logback)</sup></sub>
 	* **Test**
-		* <sub>JUnit (Unit Testing)</sub>
-			* <sub>for rest controller <sup>[link](./airport-pilot-service/src/test/java/com/airport/pilot/controller/PilotControllerTest.java)</sup></sub>
-		* <sub>Jacoco (Code Coverage) <sup>[link1](./airport-pilot-service/pom.xml), [link2](./snapshots/how%20to%20run%20code%20coverage.PNG), [link3](./snapshots/output%20of%20code%20coverage.PNG)</sup></sub>
-	* **Data JPA** <sub><sup>[link1](./airport-pilot-service/src/main/java/com/airport/pilot/repository/PilotRepository.java), [link2](./airport-pilot-service/src/main/java/com/airport/pilot/entity/PilotEntity.java)</sup></sub>
-	* **Actuator** <sub><sup>[link1](./airport-pilot-service/pom.xml), [link2](./airport-pilot-service/src/main/resources/application.yml), [link3](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html), [link4](./snapshots/actuator-output1.PNG), [link5](./snapshots/actuator-output2.PNG), [link6](./snapshots/actuator-output3.PNG), [link7](./snapshots/actuator-output4.PNG), [link8](./snapshots/actuator-output5.PNG), [link9](./snapshots/actuator-output6.PNG), [link10](./snapshots/actuator-output7.PNG), [link11](./snapshots/actuator-output8.PNG)</sup></sub>
-		* <sub>CORS enabled <sup>[link1](./airport-pilot-service/src/main/resources/application.yml), [link2](https://docs.spring.io/spring-boot/docs/current/reference/html/actuator.html)</sup></sub>
-		* **Prometheus & Grafana** <sub><sup>[link1](./snapshots/prometheus%20&%20grafana%20setup.txt), [link2](./snapshots/prometheus%20server%20console.PNG), [link3](./snapshots/grafana%20server%20console.PNG), [link4](./airport-pilot-service/pom.xml), [link5](./airport-pilot-service/src/main/resources/application.yml)</sup></sub>
-	* **Mail** <sub><sup>[link1](./airport-bookings-service/pom.xml), [link2](./airport-bookings-service/src/main/resources/application.yml), [link3](./airport-bookings-service/src/main/java/com/airport/bookings/email/BookingEmailService.java)</sup></sub>
+		* <sub>JUnit</sub>
+			* <sub>[unit testing](./airport-pilot-service/src/test/java/com/airport/pilot/controller/PilotControllerTest.java) for RestController</sub>
+		* <sub>Jacoco <sup>[code coverage](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Jacoco)</sup></sub>
+	* **Data JPA**
+	* **Actuator** <sup>[monitor & manage microservices](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Actuator)</sup>
+		* <sub>CORS enabled <sup>[allow specific cross origin, methods](./airport-pilot-service/src/main/resources/application.yml)</sup></sub>
+		* **Prometheus & Grafana** <sup>[monitoring & alerting systems](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Prometheus-&-Grafana)</sup>
+	* **Mail** <sup>[send an email](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Mail)</sup>
 * **Spring Cloud** (Starter)
-	* **Eureka Server** <sub><sup>[link1](./eureka-server/pom.xml), [link2](./eureka-server/src/main/resources/application.yml), [link3](./eureka-server/src/main/java/com/airport/eureka/server/EurekaServerApplication.java)</sup></sub> 
-		* <sub>Eureka Clients <sup>[link1](./airport-pilot-service/pom.xml), [link2](./airport-pilot-service/src/main/resources/application.yml), [link3](./airport-pilot-service/src/main/java/com/airport/pilot/AirportPilotServiceApplication.java)</sup></sub>
-	* **Gateway** <sub><sup>[link1](./api-gateway/pom.xml), [link2](./api-gateway/src/main/resources/application.yml), [link3](./api-gateway/src/main/java/com/airport/api/gateway/filter/APIGatewayFilter.java)</sup></sub>
+	* **Eureka Server & Clients** <sup>[service discovery server and clients](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Spring-Cloud-Eureka)</sup>
+	* **Gateway** <sup>[api gateway](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Spring-Cloud-Gateway)</sup>
 		* <sub>`Zuul is deprecated.`</sub> 
 		* <sub>It also does load balancing so no need to use separate Spring Cloud Load Balancer. `Ribbon is deprecated.`</sub>
-	* **OpenFeign** <sub><sup>[link1](./airport-bookings-service/pom.xml), [link2](./airport-bookings-service/src/main/java/com/airport/bookings/feignclients/FlightFeignClient.java), [link3](./airport-bookings-service/src/main/java/com/airport/bookings/service/BookingServiceImpl.java)</sup></sub>
+	* **OpenFeign** <sup>[declarative REST client](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Spring-Cloud-OpenFeign)</sup>
 		* <sub>Its an alternative to WebClient. `RestTemplate is deprecated.`</sub>
 	* **Circuit Breaker** 
-		* <sub>It provides an abstraction across different circuit breaker implementations i.e. Hystrix, Resilience4J, Sentinel, Spring Retry.</sub>
-		* **Resilience4j** <sub><sup>[link1](./airport-flight-service/pom.xml), [link2](./airport-flight-service/src/main/java/com/airport/flight/circuitbreaker/PilotServiceCircuitBreaker.java), [link3](./airport-flight-service/src/main/resources/application.yml)</sup></sub>
-		* <sub>`Hystrix is deprecated`</sub>
-	* **Sleuth** <sub><sup>[link1](./api-gateway/pom.xml), [link2](./airport-pilot-service/pom.xml), [link3](/airport-flight-service/pom.xml), [link4](/api-gateway/src/main/resources/application.yml)</sup></sub>
-	* **Zipkin** <sub><sup>[link1](./snapshots/start-zipkin-server.PNG), [link2](./snapshots/run-zipkin-server-and-trace-any-sleuth-request.PNG)</sup></sub>
-* **Hazelcast** <sub><sup>[link1](./snapshots/hazelcast%20setup.txt), [link2](./airport-pilot-service/pom.xml), [link3](./airport-pilot-service/src/main/resources/hazelcast.yaml), [link4](./airport-pilot-service/src/main/java/com/airport/pilot/service/PilotServiceImpl.java)</sup></sub>
-* **OpenAPI** (swagger-ui) <sub><sup>[link1](./airport-pilot-service/pom.xml), [link2](./airport-pilot-service/src/main/resources/application.yml)</sup></sub>
-* **Lombok** <sub><sup>[link1](./airport-pilot-service/pom.xml), [link2](./airport-pilot-service/src/main/java/com/airport/pilot/entity/PilotEntity.java)</sup></sub>
-* **ModelMapper** <sub><sup>[link1](./airport-pilot-service/pom.xml), [link2](./airport-pilot-service/src/main/java/com/airport/pilot/service/PilotServiceImpl.java)</sup></sub>
-* **SonarQube** <sub><sup>[link1](./snapshots/sonarqube%20setup.txt), [link2](./snapshots/sonarqube%20server%20output1.PNG), [link3](./snapshots/sonarqube%20server%20output2.PNG), [link4](./snapshots/sonarqube%20server%20output3.PNG), [link5](./snapshots/sonarqube%20server%20output4.PNG)</sup></sub>
+		* <sub>It provides an abstraction across different circuit breaker implementations i.e. Resilience4J, Spring Retry. `Hystrix is deprecated`</sub>
+		* **Resilience4j** <sup>[circuit breaker implementation](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Spring-Cloud-Circuit-Breaker)</sup>
+	* **Sleuth & Zipkin** <sup>[distributed tracing system](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Spring-Cloud-Sleuth-&-Zipkin)</sup>
+* **Hazelcast** <sup>[caching](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Hazelcast)</sup>
+* **SonarQube** <sup>[code quality review](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/SonarQube)</sup>
+* **OpenAPI** <sup>[swagger-ui](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Swagger-UI)</sup>
+* **Postman** 
+* **Lombok** <sup>[minimize the boilerplate code](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Lombok)</sup>
+* **ModelMapper** <sup>[object mapping](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/ModelMapper)</sup>
 * **Maven**
 * **JDK 11**
 * **Eclipse IDE**
+	* **ANSIConsole plugin** <sup>[colorful console logs](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/ANSI-Console)</sup>
 * **MySQL RDBMS**
-* **Docker** <sub><sup>[link1](./airport-pilot-service/Dockerfile), [link2](./snapshots/how%20to%20build%20and%20push%20docker%20images.PNG), [link3](./snapshots/how%20to%20build%20and%20push%20docker%20image%20without%20creating%20Dockerfile.PNG), [link4](./snapshots/docker-desktop-console.png), [link5](./snapshots/docker-hub-output.png)</sup></sub>
+* **Docker** <sup>[dockerization](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Docker)</sup>
 
 
 ## HowTo
@@ -72,19 +68,21 @@ It has two more microservices one for eureka server and one for api gateway.
 * create schema `CREATE DATABASE airportdb`
 * create tables by running dump file [airportdb.sql](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/blob/master/airportdb.sql) 
 
-**Step 2.** Configure lombok for your eclipse IDE (i.e. run lombok.jar)
+**Step 2 (optional).** Download and [Run the Zipkin Server](./snapshots/start-zipkin-server.PNG) to [trace Sleuth logs](./snapshots/run-zipkin-server-and-trace-any-sleuth-request.PNG) on GUI.
 
-**Step 3.** Clone the project
+**Step 3.** [Configure lombok](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Lombok) for your eclipse IDE (i.e. run lombok.jar)
+
+**Step 4.** Clone the project
 > git clone https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud.git
 
-**Step 4.** Import into your eclipse IDE
+**Step 5.** Import the project into your eclipse IDE
 
-**Step 5.** Update following properties
+**Step 6.** Update following properties
 * update your database credentials in the .properties file wherever it is used in all microservices.
 * update YOUR_GMAIL_USERNAME/YOUR_GMAIL_PASSWORD in the [.properties file](./airport-bookings-service/src/main/resources/application.yml) of airport-booking-service.  
 
-**Step 6.** Build all microservices `mvn clean install`
-<br />- we build in the following sequence and before that we set Java Build Path of each microservice to JDK11
+**Step 7.** Build all microservices `mvn clean install`
+<br />- we build microservices in the following sequence and before that we set Java Build Path of each microservice to JDK11
 * eureka-server
 * api-gateway
 * airport-pilot-service
@@ -94,22 +92,19 @@ It has two more microservices one for eureka server and one for api gateway.
 * airport-checkin-service
 * airport-boarding-service
 
-**Step 7.** Run all microservices in the following sequence.
+**Step 8.** Run all microservices in the following sequence.
 * eureka-server
 * api-gateway
 * all microservices one by one in any sequence
 
-**Step 8.** Run APIs using Postman or OpenAPI (Swagger-UI)
-<br />- APIs should be run as per the following sequence of the microservices for the first time.
+**Step 9.** Run APIs in the following sequence for the first time using Postman or OpenAPI<br />
+**_- Import the attached [postman collection](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/blob/master/postman_collection.json) into postman client._**
 * airport-pilot-service
 * airport-flight-service
 * airport-booking-service
 * airport-security-service
 * airport-checkin-service
 * airport-boarding-service
-
-**Step 9 (optional).** Run Zipkin Server to trace Sleuth logs on GUI.
-* download and install zipkin server and then [run the zipkin server](./snapshots/start-zipkin-server.PNG). Here is the [zipkin server console output](./snapshots/run-zipkin-server-and-trace-any-sleuth-request.PNG)
 
 ## Snapshots
 ### `Eureka Server`
@@ -117,21 +112,8 @@ It has two more microservices one for eureka server and one for api gateway.
 ![http://localhost:8761/](./snapshots/eureka-server-console.PNG)
 
 
-### `OpenAPI (swagger-ui)`
-It will be used just for testing purpose. It won't route via API Gateway. We run like an independent swagger-ui of each microservice.
-
-* [http://localhost:8081/swagger-ui.html](./snapshots/airport-pilot-service-swagger-ui.PNG)
-
-* [http://localhost:8082/swagger-ui.html](./snapshots/airport-flight-service-swagger-ui.PNG)
-
-* [http://localhost:8083/swagger-ui.html](./snapshots/airport-booking-service-swagger-ui.PNG)
-
-* [http://localhost:8084/swagger-ui.html](./snapshots/airport-security-service-swagger-ui.PNG)
-
-* [http://localhost:8085/swagger-ui.html](./snapshots/airport-checkin-service-swagger-ui.PNG)
-
-* [http://localhost:8086/swagger-ui.html](./snapshots/airport-boarding-service-swagger-ui.PNG)
-
+### `OpenAPI`
+[swagger-ui](https://github.com/SirajChaudhary/comprehensive-example-on-microservices-using-spring-boot-with-spring-cloud/wiki/Swagger-UI) will be used just for testing purpose. It won't route via API Gateway. We run like an independent swagger-ui of each microservice.
 
 
 ### `Postman`
